@@ -1,15 +1,16 @@
 import datetime
-import json
+import os
+import shutil
 from datetime import datetime
+
 import matplotlib
 import matplotlib.backends.backend_agg as agg
+import pyautogui
+import pygame
 import pygame_gui
 import pylab
-import pygame
-from pycoingecko import CoinGeckoAPI
 import requests
-import shutil
-import os
+from pycoingecko import CoinGeckoAPI
 
 # Matlab
 matplotlib.use("Agg")
@@ -62,7 +63,7 @@ timer = 0
 def update_buttons():
     if current_coin == 0:
         button_up.disable()
-    elif current_coin == len(current_data)-1:
+    elif current_coin == len(current_data) - 1:
         button_down.disable()
     else:
         button_down.enable()
@@ -136,7 +137,10 @@ def process_events(time_delta):
             running = False
 
         if event.type == pygame.USEREVENT:
-            if event.user_type == pygame_gui.UI_BUTTON_PRESSED:
+            if event.user_type == pygame_gui.UI_BUTTON_ON_HOVERED:
+
+                pyautogui.moveTo(20, 20)
+
                 if event.ui_element == button_up:
                     current_coin = current_coin - 1
                     update_graph()
@@ -158,7 +162,6 @@ def get_coins():
     if current_data != temp_data:
         current_data = temp_data
         set_data()
-
 
 
 def set_data():
@@ -213,6 +216,7 @@ def set_data():
 
 def main():
     global running, timer
+    pygame.mouse.set_visible(False)
     clock = pygame.time.Clock()
     update_graph()
     while running:
