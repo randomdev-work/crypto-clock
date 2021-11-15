@@ -37,7 +37,8 @@ WIDTH, HEIGHT = 800, 480
 running = True
 window = pygame.display.set_mode((WIDTH, HEIGHT), pygame.FULLSCREEN)
 screen = pygame.display.get_surface()
-font = pygame.font.Font('roboto.ttf', 20)
+font = pygame.font.Font('roboto.ttf', 27)
+clock_font = pygame.font.Font('roboto.ttf', 40)
 manager = pygame_gui.UIManager((WIDTH, HEIGHT))
 
 # CoinGecko
@@ -50,10 +51,10 @@ temp_data = []
 current_coin = 0
 
 # PygameUI
-button_up = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((800 - 200 - 50, 480 - 50), (100, 50)),
+button_up = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((800 - 250 - 75, 480 - 100), (100, 100)),
                                          text='↑',
                                          manager=manager)
-button_down = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((800 - 100, 480 - 50), (100, 50)),
+button_down = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((800 - 115, 480 - 100), (100, 100)),
                                            text='↓',
                                            manager=manager)
 
@@ -91,13 +92,14 @@ def update_graph():
 
 def draw_elements():
     global name_list, price_list, market_cap_list, price_1h, price_24h, price_7d
-    # Current coin
+
+    # Clear screen
     screen.fill((255, 255, 255))
+
+    # Get date
     now = datetime.now()
 
-    manager.draw_ui(screen)
-    current_coin_num = font.render(str(current_coin + 1), False, (0, 0, 0))
-    current_time = font.render(now.strftime("%H:%M:%S"), False, (0, 0, 0))
+    current_time = clock_font.render(now.strftime("%H:%M:%S"), False, (0, 0, 0))
 
     name_text = font.render('Nazwa: ' + str(name_list[current_coin]), False, (0, 0, 0))
     price_text = font.render('Cena: ' + str(round(price_list[current_coin], 6)) + ' zł', False, (0, 0, 0))
@@ -109,21 +111,21 @@ def draw_elements():
     sparkline_max = font.render('Maximum: ' + str(round(max(sparkline_list[current_coin]), 5)) + " $", False, (0, 0, 0))
 
     coin_img = pygame.transform.scale(pygame.image.load(os.path.join('images', name_list[current_coin] + '.png')),
-                                      (45, 45))
+                                      (100, 100))
 
     screen.blit(graph_string, (-4, -15))
-    screen.blit(current_time, (580, 0))
+    screen.blit(current_time, (550, 30))
 
-    screen.blit(name_text, (465, 90))
-    screen.blit(price_text, (465, 120))
-    screen.blit(price_1h_text, (465, 150))
-    screen.blit(price_24h_text, (465, 180))
-    screen.blit(price_7d_text, (465, 210))
-    screen.blit(sparkline_min, (465, 240))
-    screen.blit(sparkline_max, (465, 270))
+    screen.blit(name_text, (450, 90))
+    screen.blit(price_text, (450, 120))
+    screen.blit(price_1h_text, (450, 150))
+    screen.blit(price_24h_text, (450, 180))
+    screen.blit(price_7d_text, (450, 210))
+    screen.blit(sparkline_min, (450, 240))
+    screen.blit(sparkline_max, (450, 270))
 
-    screen.blit(coin_img, (652, 430))
-    screen.blit(current_coin_num, (500, 435))
+    screen.blit(coin_img, (580, 375))
+    manager.draw_ui(screen)
 
     pygame.display.update()
 
@@ -162,6 +164,7 @@ def get_coins():
     if current_data != temp_data:
         current_data = temp_data
         set_data()
+        update_graph()
 
 
 def set_data():
@@ -216,9 +219,13 @@ def set_data():
 
 def main():
     global running, timer
-    pygame.mouse.set_visible(False)
-    clock = pygame.time.Clock()
+
     update_graph()
+
+    pygame.mouse.set_visible(False)
+
+    clock = pygame.time.Clock()
+
     while running:
         draw_elements()
 
