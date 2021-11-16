@@ -9,9 +9,9 @@ Update the system:
 1. sudo apt-get update
 2. sudo apt-get upgrade
 
-Install packages:
+Install git:
 
-1. sudo apt-get install git
+1. sudo apt-get install git-all
 
 Execute in terminal
 
@@ -27,24 +27,5 @@ python3 main.py
 cd ..
 ----------------
 
-3. Ctrl + O to save
-4. sudo crontab -e
-5. Select editor (nano is the best)
+Install python libraries:
 
----------------------------------------------------------
-Select an editor.  To change later, run 'select-editor'.
-  1. /bin/nano        <---- easiest
-  2. /usr/bin/vim.tiny
-  3. /bin/ed
-
-Choose 1-3 [1]: 1
----------------------------------------------------------
-
-6. At the end enter this line:
-
------------------------------
-@reboot sh /home/pi/start.sh
------------------------------
-
-7. Ctrl + O to save
-8. sudo reboot
