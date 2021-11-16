@@ -2,6 +2,8 @@
 It is a clock with a lot of API stuff for checking crypto from CoinGecko.
 The target of this app is Raspberry Pi with a 800x480 display
 
+![This is an image](https://raw.githubusercontent.com/randomdev-work/crypto-clock/main/preview.PNG)
+
 Tutorial:
 
 Update the system:
