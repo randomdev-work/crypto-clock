@@ -11,21 +11,25 @@ Update the system:
 
 Install git:
 
-1. sudo apt-get install git-all
+1. sudo apt-get install git
 
-Execute in terminal
+Clone and configure:
 
 1. git clone https://github.com/randomdev-work/crypto-clock
-2. nano start.sh (Open nano editor)
-3. 
-Type:
-----------------
-#!/bin/sh
+2. cd crypto-clock
+3. sudo nano /etc/rc.local
+4. Type:
 
-cd crypto-clock
-python3 main.py
-cd ..
+----------------
+python3 /home/pi/crypto-clock/main.py &
 ----------------
 
-Install python libraries:
+Install libraries:
 
+1. sudo pip3 install matplotlib
+2. sudo pip3 install pyautogui
+3. sudo pip3 install pygame_gui
+4. sudo pip3 install pycoingecko
+5. sudo apt-get install libatlas-base-dev
+6. sudo apt-get install libsdl2-ttf-2.0-0
+7. sudo apt-get install libsdl2-image-2.0-0
