@@ -16,12 +16,16 @@ Install git:
 Clone and configure:
 
 1. git clone https://github.com/randomdev-work/crypto-clock
-2. cd crypto-clock
-3. sudo nano /etc/rc.local
+2. mkdir /home/pi/.config/autostart
+3. nano /home/pi/.config/autostart/crypto-clock.desktop
 4. Type:
 
 ----------------
-python3 /home/pi/crypto-clock/main.py &
+[Desktop Entry]
+
+Type= Application
+Name= Crypto-clock
+Exec= sh /home/pi/crypto-clock/start.sh
 ----------------
 
 Install libraries:
