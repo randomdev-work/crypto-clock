@@ -21,12 +21,14 @@ Clone and configure:
 4. Type:
 
 ----------------
+
 [Desktop Entry]
 
-Type= Application
-Name= Crypto-clock
-Exec= sh /home/pi/crypto-clock/start.sh
+Type=Application
+Name=Crypto-clock
+Exec=sh /home/pi/crypto-clock/start.sh
 
+----------------
 
 
 Install libraries:
