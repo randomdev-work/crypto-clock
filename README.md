@@ -35,3 +35,7 @@ Install libraries:
 sudo pip3 install matplotlib pyautogui pygame_gui pycoingecko
 sudo apt-get install libatlas-base-dev libsdl2-ttf-2.0-0 libsdl2-image-2.0-0
 ```
+Reboot and check:
+```
+sudo reboot
+```
