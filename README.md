@@ -20,15 +20,11 @@ Clone and configure:
 3. nano /home/pi/.config/autostart/crypto-clock.desktop
 4. Type:
 
-----------------
-
 >[Desktop Entry]
 >
 >Type= Application
 >Name= Crypto-clock
 >Exec= sh /home/pi/crypto-clock/start.sh
-
-----------------
 
 
 Install libraries:
