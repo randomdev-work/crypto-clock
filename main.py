@@ -229,13 +229,13 @@ def main():
     while running:
         draw_elements()
 
-        if timer > 15:
+        if timer > 20:
             get_coins()
             timer = 0
 
         update_buttons()
         process_events(clock.tick(60) / 1000.0)
-        timer = timer + 0.1
+        timer = timer + 0.01
 
 
 if __name__ == '__main__':
