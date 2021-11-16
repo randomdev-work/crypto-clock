@@ -26,16 +26,11 @@ Type:
 
 Type= Application
 Name= Crypto-clock
-Exec= sh /home/pi/crypto-clock/start.sh
+Exec= sudo sh /home/pi/crypto-clock/start.sh
 ```
 
 Install libraries:
 ```
-sudo pip3 install matplotlib
-sudo pip3 install pyautogui
-sudo pip3 install pygame_gui
-sudo pip3 install pycoingecko
-sudo apt-get install libatlas-base-dev
-sudo apt-get install libsdl2-ttf-2.0-0
-sudo apt-get install libsdl2-image-2.0-0
+sudo pip3 install matplotlib pyautogui pygame_gui pycoingecko
+sudo apt-get install libatlas-base-dev libsdl2-ttf-2.0-0 libsdl2-image-2.0-0
 ```
