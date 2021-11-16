@@ -16,7 +16,7 @@ sudo apt-get install git
 Clone and configure autostart:
 ```
 git clone https://github.com/randomdev-work/crypto-clock
-chmod 777 crypto-clock/start.sh
+sudo chmod 777 crypto-clock/start.sh
 mkdir /home/pi/.config/autostart
 nano /home/pi/.config/autostart/crypto-clock.desktop
 ```
