@@ -26,7 +26,8 @@ Clone and configure:
 Type= Application
 Name= Crypto-clock
 Exec= sh /home/pi/crypto-clock/start.sh
-----------------
+
+
 
 Install libraries:
 
