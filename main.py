@@ -40,7 +40,7 @@ window = pygame.display.set_mode((WIDTH, HEIGHT), pygame.FULLSCREEN)
 pygame.mouse.set_visible(False)
 screen = pygame.display.get_surface()
 font = pygame.font.Font('roboto.ttf', 32)
-clock_font = pygame.font.Font('roboto.ttf', 60)
+clock_font = pygame.font.Font('roboto.ttf', 80)
 manager = pygame_gui.UIManager((WIDTH, HEIGHT))
 
 # CoinGecko
@@ -132,7 +132,7 @@ def draw_elements():
                                           (100, 100))
 
     screen.blit(graph_string, (-4, -15))
-    screen.blit(current_time, (515, 30))
+    screen.blit(current_time, (470, 30))
 
     screen.blit(name_text, (455, 120))
     screen.blit(price_text, (455, 150))
